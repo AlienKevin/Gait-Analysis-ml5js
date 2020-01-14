@@ -1,0 +1,23 @@
+{
+  "name": "gate-analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dist": "terser --compress --mangle --output public/index.js -- src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlienKevin/Gait-Analysis-ml5js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlienKevin/Gait-Analysis-ml5js/issues"
+  },
+  "homepage": "https://github.com/AlienKevin/Gait-Analysis-ml5js#readme",
+  "devDependencies": {
+    "terser": "^4.6.3"
+  }
+}
