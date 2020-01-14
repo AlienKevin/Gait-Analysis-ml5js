@@ -40,7 +40,10 @@ let plot = new Chart(
 });
 
 function setup() {
-  createCanvas(640, 480);
+  let canvas = createCanvas(windowHeight * 2 / 3, windowHeight / 2);
+  let x = (windowWidth - width) / 2;
+  let y = 10;
+  canvas.position(x, y);
   video = createCapture(VIDEO);
   video.size(width, height);
 

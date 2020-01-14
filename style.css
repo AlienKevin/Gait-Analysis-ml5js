@@ -8,3 +8,7 @@ html {
 .swal-text {
     color: black;
 }
+
+#plot {
+    padding-top: 50vh;
+}
