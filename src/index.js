@@ -1,12 +1,14 @@
-// Copyright (c) 2019 ml5
-//
-// This software is released under the MIT License.
-// https://opensource.org/licenses/MIT
+// Copyright (c) 2019 ml5 under MIT
 
-/* ===
-ml5 Example
-PoseNet example using p5.js
-=== */
+// start loader screen
+swal({
+  title: "Loading...",
+  text: "Please wait",
+  icon: "/assets/spinner.gif",
+  button: false,
+  closeOnClickOutside: false,
+  closeOnEsc: false
+});
 
 let video;
 let poseNet;
@@ -134,7 +136,7 @@ function toDegrees(radians) {
 }
 
 function modelReady() {
-  select('#status').html('Model Loaded');
+  swal.close();
 }
 
 function draw() {
