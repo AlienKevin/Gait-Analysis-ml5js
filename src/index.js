@@ -11,7 +11,7 @@ PoseNet example using p5.js
 let video;
 let poseNet;
 let poses = [];
-let warnings = [];
+let warnings = false;
 let angles = [];
 let plot = new Chart(
   document.getElementById('plot').getContext('2d'),
@@ -62,7 +62,7 @@ function setup() {
   poseNet.on('pose', function (results) {
     // initialize module variables
     poses = results;
-    warnings = [];
+    warnings = false;
 
     if (poses.length > 0) {
       const pose = poses[0].pose;
@@ -71,7 +71,7 @@ function setup() {
         function getPart(partName) {
           const part = points.filter((point) => point.part === partName)[0]
           if (part.score < 0.1) {
-            warnings.push(partName)
+            warnings = true;
           } else {
             return part.position;
           }
@@ -103,7 +103,7 @@ function setup() {
           "leftAnkle",
           "rightAnkle"
         ].map(getPart);
-        if (warnings.length === 0) {
+        if (!warnings) {
           angles.push(
             {
               leftElbow: getAngle(leftShoulder, leftElbow, leftWrist),
@@ -140,16 +140,15 @@ function modelReady() {
 function draw() {
   image(video, 0, 0, width, height);
 
-  if (warnings.length === 0) {
+  if (!warnings) {
     drawKeypoints();
     drawSkeleton();
   } else {
-    textSize(16);
-    fill(50);
-    text(
-      "Please make sure that " + warnings.join(", ") + " are in the view of the camera.",
-      10, 10, 400, 200
-    );
+    swal("Please make sure that all your body parts are in the view of the camera.", {
+      icon: "warning",
+      buttons: false,
+      timer: 200,
+    });
   }
 }
 
