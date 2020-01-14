@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dist": "terser --compress --mangle --output public/index.js -- src/index.js"
+    "dist": "terser --compress --mangle --output public/index.min.js -- public/index.js"
   },
   "repository": {
     "type": "git",
