@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/AlienKevin/Gait-Analysis-ml5js#readme",
   "devDependencies": {
-    "terser": "^4.6.3"
+    "terser": "^4.8.1"
   }
 }
